@@ -25,11 +25,11 @@
 .numeric { 
   font-variant-numeric: tabular-nums;
   text-align: right;
-  font-family: var(--bs-font-monospace) !important;
+  font-family: system-ui;
 }
 
 .cash { 
   font-variant-numeric: tabular-nums;
   text-align: right;
-  font-family: var(--bs-font-monospace) !important;
+  font-family: system-ui;
 }
