@@ -9,10 +9,7 @@ class CartsController::ShowAction
   end
 
   def message
-    format(
-      "Total: %<sum>s",
-      sum: helper.number_to_currency(cart.products.sum(:price)),
-    )
+    format("Total: %<total>s", total:)
   end
 
   def cart
@@ -21,7 +18,7 @@ class CartsController::ShowAction
 
   def products
     Product::Presenter.wrap do
-      cart.products.summary
+      cart.products_summary
     end
   end
 
@@ -31,5 +28,11 @@ class CartsController::ShowAction
 
   def helper
     @_helper ||= ActionController::Base.helpers
+  end
+
+  def total
+     helper.number_to_currency(
+       cart.products_summary.sum(&:total)
+     )
   end
 end

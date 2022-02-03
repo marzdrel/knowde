@@ -10,13 +10,10 @@ class CartsController::UpdateAction
     self.request = request
   end
 
-  def call
-    result
-  end
+  def call = result
 
-  def cart
-    @_cart ||= Cart.find_by!(marker: params.fetch(:id))
-  end
+  decorate :memoize
+  def cart = Cart.find_by!(marker: params.fetch(:id))
 
   delegate :message, :message_klass, to: :product
   delegate :valid?, to: :result
@@ -27,20 +24,12 @@ class CartsController::UpdateAction
 
   decorate :memoize
   def product
-    Product::Presenter.new(result.product).presence || Product::Null.new
+    Product::Null.new
   end
 
-  def result
-    @_result ||= Cart::Inserter.call(cart, code)
-  end
+  decorate :memoize
+  def result = Cart::Inserter.call(cart, code)
 
-  def code
-    data.fetch(:code)
-  end
-
-  def data
-    params
-      .require(:cart)
-      .permit(:code)
-  end
+  def code = data.fetch(:code)
+  def data = params.require(:cart).permit(:code)
 end
