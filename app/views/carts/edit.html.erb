@@ -26,7 +26,7 @@
                 <%= form_with model: @action.cart, data: { turbo: false } do |f| %>
                   <div class="mb-3">
                     <%= f.label :code, class: "form-label" do %> Enter barcode <% end %>
-                    <%= f.text_field :code, class: "form-control", placeholder: "Type barcode, valid codes (100-199)", autofocus: true %>
+                    <%= f.text_field :code, class: "form-control", placeholder: "Type barcode (100-199 are valid codes)", autofocus: true %>
                   </div>
 
                   <div class="mt-3">
