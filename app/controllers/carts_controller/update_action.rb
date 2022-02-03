@@ -13,7 +13,7 @@ class CartsController::UpdateAction
   def call
     return unless valid?
 
-    # Add product
+    cart.products << product
   end
 
   def valid?
