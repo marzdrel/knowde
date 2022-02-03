@@ -1,3 +1,5 @@
 Rails.application.routes.draw do
-  root "application#hello"
+  resources :barcodes, only: [:index, :show, :update]
+
+  root to: "barcodes#index"
 end
