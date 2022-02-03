@@ -1,3 +1,21 @@
+## Instructions
+
+This app is available at https://knowde-scanner.herokuapp.com/
+
+This app requires Ruby 3.1.0 and Rails 7.0.1.
+
+In order to run the app execute:
+
+```
+# Install and enable Ruby 3.1.0
+% bundle install
+% rake db:create
+% rake db:migrate
+% rake db:seed
+% rails server
+# visit https://localhost:3000/
+```
+
 ## Knowde code assignment
 
 Implement a Point of Sale
