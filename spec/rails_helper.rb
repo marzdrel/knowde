@@ -11,7 +11,7 @@ if Rails.env.production?
 end
 
 require "rspec/rails"
-require "webmock/rspec"
+# require "webmock/rspec"
 
 # Add additional requires below this line. Rails is not loaded until this point!
 
@@ -32,6 +32,25 @@ require "webmock/rspec"
 
 # Checks for pending migrations and applies them before tests are run.
 # If you are not using ActiveRecord, you can remove these lines.
+
+Capybara.register_driver :selenium_chrome_headless do |app|
+  options = Selenium::WebDriver::Chrome::Options.new
+  options.add_argument "headless"
+  options.add_argument "window-size=1440x900"
+  options.add_argument "disable-gpu"
+  options.add_argument "no-sandbox"
+
+  options.add_argument(
+    "--enable-features=NetworkService,NetworkServiceInProcess",
+  )
+
+  Capybara::Selenium::Driver.new(app, browser: :chrome, options: options)
+end
+
+Capybara.default_max_wait_time = 5
+Capybara.server = :puma, { Silent: true }
+Capybara.default_driver = :selenium_chrome_headless
+Capybara.javascript_driver = :selenium_chrome_headless
 
 begin
   ActiveRecord::Migration.maintain_test_schema!
