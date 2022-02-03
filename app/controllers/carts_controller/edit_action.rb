@@ -18,9 +18,9 @@ class CartsController::EditAction
 
   decorate :memoize
   def product
-    cart.products_last.then do |value|
+    cart.ordered_products_last.then do |value|
       if value
-        Product::Presenter.new(cart.products_last)
+        Product::Presenter.new(cart.ordered_products_last)
       else
         Product::Empty.new
       end

@@ -3,7 +3,7 @@ require "rails_helper"
 RSpec.describe CartsController::EditAction do
   let(:service) { described_class.new(params, request) }
   let(:request) { instance_double(ActionDispatch::Request) }
-  let(:cart) { instance_double(Cart, products_last: product) }
+  let(:cart) { instance_double(Cart, ordered_products_last: product) }
 
   let(:product) do
     instance_double(Product, name: "Something", price: 200)
