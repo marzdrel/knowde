@@ -4,7 +4,19 @@ RSpec.describe Product::Presenter do
   let(:service) { described_class.new(object) }
 
   let(:object) do
-    instance_double(Product, price: 123.23)
+    instance_double(Product, price: 123.23, name: "Product")
+  end
+
+  describe "#message" do
+    it "returns class" do
+      expect(service.message).to eq "Product - $123.23"
+    end
+  end
+
+  describe "#message_klass" do
+    it "returns class" do
+      expect(service.message_klass).to eq "btn-outline-warning"
+    end
   end
 
   describe "#pretty_cash" do

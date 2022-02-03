@@ -13,8 +13,14 @@ class Product::Presenter < BasePresenter
   end
 
   def message_klass
+    "btn-outline-warning"
   end
 
   def message
+    format(
+      "%<name>s - %<price>s",
+      name: name,
+      price: helper.number_to_currency(price),
+    )
   end
 end
