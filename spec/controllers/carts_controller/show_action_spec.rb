@@ -3,7 +3,14 @@ require "rails_helper"
 RSpec.describe CartsController::ShowAction do
   let(:service) { described_class.new(params, request) }
   let(:request) { instance_double(ActionDispatch::Request) }
-  let(:cart) { instance_double(Cart) }
+  let(:cart) { instance_double(Cart, products_summary: summary) }
+
+  let(:summary) do
+    [
+      double(total: 20),
+      double(total: 30),
+    ]
+  end
 
   let(:params) do
     ActionController::Parameters.new(id: "21485300")
@@ -26,8 +33,8 @@ RSpec.describe CartsController::ShowAction do
   end
 
   describe "#message" do
-    xit "returns final message" do
-      expect(service.message).to eq ""
+    it "returns final message" do
+      expect(service.message).to eq "Total: $50.00"
     end
   end
 
