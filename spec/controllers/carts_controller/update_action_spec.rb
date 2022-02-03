@@ -3,8 +3,14 @@ require "rails_helper"
 RSpec.describe CartsController::UpdateAction do
   let(:service) { described_class.new(params, request) }
   let(:request) { instance_double(ActionDispatch::Request) }
-  let(:params) { ActionController::Parameters.new(id: "2c080760e9") }
   let(:cart) { instance_double(Cart) }
+
+  let(:params) do
+    ActionController::Parameters.new(
+      id: "2c080760e9",
+      cart: { code: "123" },
+    )
+  end
 
   before do
     allow(Cart).to receive_messages(find_by!: cart)

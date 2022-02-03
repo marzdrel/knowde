@@ -1,6 +1,8 @@
 class CartsController::UpdateAction
+  extend Adornable
+
   def self.call(...)
-    new(...).call
+    new(...).tap(&:call)
   end
 
   def initialize(params, request)
@@ -12,6 +14,19 @@ class CartsController::UpdateAction
   end
 
   def valid?
+    product.present?
+  end
+
+  def message_klass
+    if valid?
+      "success"
+    else
+      "danger"
+    end
+  end
+
+  def message
+    "Message #{valid?}"
   end
 
   def cart
@@ -21,4 +36,15 @@ class CartsController::UpdateAction
   private
 
   attr_accessor :params, :user, :request
+
+  decorate :memoize
+  def product
+    Product.find_by(code: data.fetch(:code))
+  end
+
+  def data
+    params
+      .require(:cart)
+      .permit(:code)
+  end
 end
