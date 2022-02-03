@@ -11,4 +11,10 @@ class Product::Presenter < BasePresenter
   def pretty_total
     pretty_cash(:total)
   end
+
+  def message_klass
+  end
+
+  def message
+  end
 end
