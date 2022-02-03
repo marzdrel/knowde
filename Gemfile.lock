@@ -68,6 +68,7 @@ GEM
       tzinfo (~> 2.0)
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
+    adornable (1.2.0)
     ast (2.4.2)
     bindex (0.8.1)
     bootsnap (1.10.2)
@@ -333,6 +334,7 @@ PLATFORMS
   arm64-darwin-20
 
 DEPENDENCIES
+  adornable
   bootsnap
   capybara
   debug

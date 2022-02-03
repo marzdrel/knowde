@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.1.0"
 
+gem "adornable"
 gem "bootsnap", require: false
 gem "jbuilder"
 gem "jsbundling-rails"
