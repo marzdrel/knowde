@@ -4,10 +4,15 @@ RSpec.describe BarcodesController::IndexAction do
   let(:service) { described_class.new(params, request) }
   let(:request) { instance_double(ActionDispatch::Request) }
   let(:params) { ActionController::Parameters.new }
+  let(:cart) { instance_double(Cart) }
 
-  describe "#call" do
+  before do
+    allow(Cart).to receive_messages(create!: cart)
+  end
+
+  describe "#cart" do
     it "returns new cart object" do
-      expect(service.call).to be_nil
+      expect(service.cart).to be cart
     end
   end
 end

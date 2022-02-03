@@ -11,6 +11,10 @@ class BarcodesController::IndexAction
   def call
   end
 
+  def cart
+    @_cart ||= Cart.create!(marker: SecureRandom.hex(4))
+  end
+
   private
 
   attr_accessor :params, :user, :request
