@@ -26,10 +26,11 @@ group :development, :test do
 end
 
 group :development do
-  gem "web-console"
+  gem "faker", require: false
   gem "spring", ">= 4"
   gem "spring-commands-rspec"
   gem "standardrb", require: false
+  gem "web-console"
 end
 
 group :test do
