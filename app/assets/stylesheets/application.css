@@ -21,3 +21,15 @@
 .text-right { 
   text-align: right;
 }
+
+.numeric { 
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  font-family: var(--bs-font-monospace) !important;
+}
+
+.cash { 
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  font-family: var(--bs-font-monospace) !important;
+}
