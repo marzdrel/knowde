@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe BarcodesController, type: :controller do
+RSpec.describe CartsController, type: :controller do
   describe "GET #index" do
     let(:klass) { described_class::IndexAction }
     let(:cart) { OpenStruct.new(cart: :cart) }

@@ -1,4 +1,4 @@
-class BarcodesController::IndexAction
+class CartsController::UpdateAction
   def self.call(...)
     new(...).call
   end
@@ -11,8 +11,11 @@ class BarcodesController::IndexAction
   def call
   end
 
+  def valid?
+  end
+
   def cart
-    @_cart ||= Cart.create!(marker: SecureRandom.hex(4))
+    @_cart ||= Cart.find_by!(marker: params.fetch(:id))
   end
 
   private

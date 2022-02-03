@@ -1,17 +1,7 @@
-class BarcodesController::UpdateAction
-  def self.call(...)
-    new(...).call
-  end
-
+class CartsController::ShowAction
   def initialize(params, request)
     self.params = params
     self.request = request
-  end
-
-  def call
-  end
-
-  def valid?
   end
 
   def cart
@@ -20,5 +10,5 @@ class BarcodesController::UpdateAction
 
   private
 
-  attr_accessor :params, :user, :request
+  attr_accessor :params, :request
 end

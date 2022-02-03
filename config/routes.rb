@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :barcodes, only: [:index, :show, :update]
+  resources :carts, only: [:index, :show, :update]
 
-  root to: "barcodes#index"
+  root to: "carts#index"
 end

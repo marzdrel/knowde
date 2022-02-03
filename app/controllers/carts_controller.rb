@@ -1,11 +1,12 @@
-class BarcodesController < ApplicationController
+class CartsController < ApplicationController
   def index
     action = IndexAction.new(*action_args)
 
-    redirect_to barcode_path(action.cart)
+    redirect_to cart_path(action.cart)
   end
 
   def show
+    @action = ShowAction.new(*action_args)
   end
 
   def update
