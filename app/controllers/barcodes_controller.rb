@@ -8,6 +8,13 @@ class BarcodesController < ApplicationController
   def show
   end
 
-  def create
+  def update
+    @action = UpdateAction.call(*action_args)
+
+    if @action.valid?
+      redirect_to @action.cart
+    else
+      render "show"
+    end
   end
 end
