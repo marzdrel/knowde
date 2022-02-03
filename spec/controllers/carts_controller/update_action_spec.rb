@@ -9,7 +9,7 @@ RSpec.describe CartsController::UpdateAction do
   let(:params) do
     ActionController::Parameters.new(
       id: "2c080760e9",
-      cart: { code: "123" },
+      cart: {code: "123"}
     )
   end
 

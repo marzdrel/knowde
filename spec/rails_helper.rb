@@ -3,7 +3,7 @@ require "spec_helper"
 
 ENV["RAILS_ENV"] ||= "test"
 
-require File.expand_path('../config/environment', __dir__)
+require File.expand_path("../config/environment", __dir__)
 
 # Prevent database truncation if the environment is production
 if Rails.env.production?
@@ -41,14 +41,14 @@ Capybara.register_driver :selenium_chrome_headless do |app|
   options.add_argument "no-sandbox"
 
   options.add_argument(
-    "--enable-features=NetworkService,NetworkServiceInProcess",
+    "--enable-features=NetworkService,NetworkServiceInProcess"
   )
 
   Capybara::Selenium::Driver.new(app, browser: :chrome, options: options)
 end
 
 Capybara.default_max_wait_time = 5
-Capybara.server = :puma, { Silent: true }
+Capybara.server = :puma, {Silent: true}
 Capybara.default_driver = :selenium_chrome_headless
 Capybara.javascript_driver = :selenium_chrome_headless
 

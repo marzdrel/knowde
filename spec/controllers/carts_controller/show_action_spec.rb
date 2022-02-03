@@ -8,7 +8,7 @@ RSpec.describe CartsController::ShowAction do
   let(:summary) do
     [
       double(total: 20),
-      double(total: 30),
+      double(total: 30)
     ]
   end
 
