@@ -15,12 +15,14 @@
 
             <hr>
 
+            <%= @action.message %>
+
             <div class="row">
               <div class="col-sm-12">
-                <%= form_with model: @action.cart do |f| %>
+                <%= form_with model: @action.cart, data: { turbo: false } do |f| %>
                   <div class="mb-3">
-                    <%= f.label :keywords, class: "form-label" do %> Enter barcode <% end %>
-                    <%= f.text_field :keywords, class: "form-control", placeholder: "Type barcode, ex: 123", autofocus: true %>
+                    <%= f.label :code, class: "form-label" do %> Enter barcode <% end %>
+                    <%= f.text_field :code, class: "form-control", placeholder: "Type barcode, ex: 123", autofocus: true %>
                   </div>
 
                   <div class="mt-3">

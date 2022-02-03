@@ -4,6 +4,13 @@ class CartsController::ShowAction
     self.request = request
   end
 
+  def message_klass
+    "none"
+  end
+
+  def message
+  end
+
   def cart
     @_cart ||= Cart.find_by!(marker: params.fetch(:id))
   end
