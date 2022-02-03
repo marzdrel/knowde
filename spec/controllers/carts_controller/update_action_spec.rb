@@ -42,6 +42,14 @@ RSpec.describe CartsController::UpdateAction do
 
         expect(products).to eq [:product]
       end
+
+      context "without valid product" do
+        let(:product) { nil }
+
+        it "does not add products" do
+          expect(products).to eq []
+        end
+      end
     end
   end
 
