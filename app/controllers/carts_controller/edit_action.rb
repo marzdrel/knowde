@@ -1,14 +1,15 @@
-class CartsController::ShowAction
+class CartsController::EditAction
   def initialize(params, request)
     self.params = params
     self.request = request
   end
 
   def message_klass
-    raise ArgumentError, 1
+    "btn-outline-warning"
   end
 
   def message
+    "Product"
   end
 
   def cart

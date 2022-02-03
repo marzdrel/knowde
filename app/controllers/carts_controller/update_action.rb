@@ -11,6 +11,9 @@ class CartsController::UpdateAction
   end
 
   def call
+    return unless valid?
+
+    # Add product
   end
 
   def valid?
@@ -18,15 +21,11 @@ class CartsController::UpdateAction
   end
 
   def message_klass
-    if valid?
-      "success"
-    else
-      "danger"
-    end
+    "btn-outline-danger"
   end
 
   def message
-    "Message #{valid?}"
+    "Product not Found"
   end
 
   def cart
