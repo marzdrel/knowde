@@ -20,7 +20,7 @@ class Product::Presenter < BasePresenter
     format(
       "%<name>s - %<price>s",
       name: name,
-      price: helper.number_to_currency(price),
+      price: helper.number_to_currency(price)
     )
   end
 end

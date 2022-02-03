@@ -7,7 +7,7 @@ class Cart < ApplicationRecord
     :ordered_products,
     -> { order("line_items.id") },
     through: :line_items,
-    source: :product,
+    source: :product
   )
 
   def to_param

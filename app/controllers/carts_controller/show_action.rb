@@ -31,8 +31,8 @@ class CartsController::ShowAction
   end
 
   def total
-     helper.number_to_currency(
-       cart.products_summary.sum(&:total)
-     )
+    helper.number_to_currency(
+      cart.products_summary.sum(&:total)
+    )
   end
 end

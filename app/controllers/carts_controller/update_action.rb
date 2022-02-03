@@ -31,5 +31,6 @@ class CartsController::UpdateAction
   def result = Cart::Inserter.call(cart, code)
 
   def code = data.fetch(:code)
+
   def data = params.require(:cart).permit(:code)
 end
