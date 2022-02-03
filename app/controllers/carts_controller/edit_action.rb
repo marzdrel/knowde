@@ -9,7 +9,13 @@ class CartsController::EditAction
   end
 
   def message
-    "Product"
+    return default_message if cart.products.empty?
+
+    format(
+      "%<name>s - %<price>s",
+      name: product.name,
+      price: product.price,
+    )
   end
 
   def cart
@@ -19,4 +25,12 @@ class CartsController::EditAction
   private
 
   attr_accessor :params, :request
+
+  def product
+    @_product ||= cart.products.last
+  end
+
+  def default_message
+    "Scan first product"
+  end
 end

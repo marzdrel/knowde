@@ -27,10 +27,10 @@
               <thead>
                 <tr>
                   <th>Product</th>
-                  <th>Code</th>
-                  <th>Qty</th>
-                  <th>Price</th>
-                  <th>Total</th>
+                  <th class="text-right">Code</th>
+                  <th class="text-right">Qty</th>
+                  <th class="text-right">Price</th>
+                  <th class="text-right">Total</th>
                 </tr>
               </thead>
 
@@ -38,10 +38,10 @@
                 <% @action.products.each do |product| %>
                   <tr>
                     <td> <%= product.name %> </td>
-                    <td> <%= product.code %> </td>
-                    <td> <%= "1" %> </td>
-                    <td> <%= product.price %> </td>
-                    <td> <%= product.price %> </td>
+                    <td class="numeric"> <%= product.code %> </td>
+                    <td class="numeric"> <%= product.qty %> </td>
+                    <td class="cash"> <%= product.pretty_price %> </td>
+                    <td class="cash"> <%= product.pretty_total %> </td>
                   </tr>
                 <% end %>
               </tbody>
