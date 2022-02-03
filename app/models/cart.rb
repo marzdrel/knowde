@@ -5,4 +5,6 @@ class Cart < ApplicationRecord
   def to_param
     marker
   end
+
+  delegate :last, :summary, to: :products, prefix: true
 end
